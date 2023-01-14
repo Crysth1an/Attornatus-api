@@ -46,7 +46,7 @@ public class PessoaResource {
 	@ResponseStatus(HttpStatus.CREATED)
 	public ResponseEntity<Pessoa> criar(@Valid @RequestBody Pessoa pessoa, HttpServletResponse response) {
 		Pessoa pessoaSalva = pessoaRepository.save(pessoa);
-		publisher.publishEvent(new RecursoCriadoEvent(this, response, pessoaSalva.getId()));
+		publisher.publishEvent(new RecursoCriadoEvent(this, response, pessoaSalva.getId_pessoa()));
 		return ResponseEntity.status(HttpStatus.CREATED).body(pessoaSalva);
 	}
 
